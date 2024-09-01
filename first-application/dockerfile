@@ -1,23 +1,23 @@
-# Use a Python base image
-FROM python:3.10-slim
+FROM python:3.8-slim
 
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /app
 
-# Copy requirements.txt if you have one
+# Copy the requirements file into the container
 COPY requirements.txt .
 
-# Install dependencies
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install pylance and mypy
-RUN pip install --no-cache-dir pylance mypy
 
-# Copy the rest of the application code
+# Install MyPy
+RUN pip install mypy
+
+# Copy the rest of your application code
 COPY . .
 
-# Expose the port for Jupyter Notebook (or your application)
-EXPOSE 8888
+# Run MyPy to check types
+RUN mypy .
 
-# Command to run your application (e.g., Jupyter Notebook)
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+# Command to run your application
+CMD ["python", "test.py"]
