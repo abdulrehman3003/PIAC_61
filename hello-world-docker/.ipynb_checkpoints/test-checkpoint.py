@@ -1,1 +1,0 @@
-print("hello ladies and gentalmen")
