@@ -1,5 +1,5 @@
 # 💫 About Me:
-I am currently a student studying generative AI and Cyber Security <br>
+I am studying Generative AI with PIAC  <br>
 
 
 ## 🌐 Socials:
